@@ -8,7 +8,7 @@ pipeline{
         }
          stage("run a command"){
             steps{
-                echo 'pwd'
+                echo sh 'pwd'
             }
         }
          stage("run multiple commands"){
