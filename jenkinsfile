@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+    environment {
+        NAME='saif'
+    }
+    parameters {
+        string(name:'saifff',defaultValue:'hiii',description:'hghghg')
+        booleanParam(name:'sayyed',defaultValue:'true',description:'ttt')
+        choice(name:'fruit',choices:['mango','grapes','banana'],description:'choose one')
+    }
+    stages {
+        stage('continue param') {
+            input {
+                message "go ahead?"
+                ok "y?"
+            }
+            steps {
+                echo 'test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+                ls
+                pwd
+                date
+                '''
+                echo 'done'
+                
+            }
+        }
+        stage('parameters') {
+            steps {
+                sh 'echo "${saifff}"'
+                sh 'echo "${fruit}"'
+                sh 'echo "${sayyed}"'
+            }
+        }
+        stage('environment virables') {
+            steps {
+                sh 'echo "${BUILD_ID}"'
+                sh 'echo "${NAME}"'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'i will always do prayers'
+        }
+        failure {
+             echo 'i will not fail'
+        }
+        success {
+             echo 'i will be success'
+        }
+}
+}
+
