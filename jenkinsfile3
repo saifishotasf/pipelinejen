@@ -8,12 +8,12 @@ pipeline{
         }
          stage("run a command"){
             steps{
-                echo sh 'pwd'
+                 sh 'pwd'
             }
         }
          stage("run multiple commands"){
             steps{
-                echo sh '''pwd
+                     sh '''pwd
                            ls
                            date
                            cat'''
