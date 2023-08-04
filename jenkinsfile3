@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("echo a line"){
             steps{
-                echo echo 'this is step one'
+                echo 'this is step one'
             }
         }
          stage("run a command"){
@@ -14,9 +14,9 @@ pipeline{
          stage("run multiple commands"){
             steps{
                 echo sh '''pwd
-ls
-date
-cat'''
+                           ls
+                           date
+                           cat'''
             }
         }
          stage("D"){
